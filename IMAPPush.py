@@ -176,11 +176,13 @@ class Idler(threading.Thread):
 		debugMsg('growlnotify() entered')
 		
 		#if growlnotify is installed, show notification
-		if os.path.isfile('/usr/local/bin/growlnotify'):
+                growl = '/home/jha/bin/prowl'
+                if os.path.isfile(growl):
 			
 			#The command string - os.system()ed to use growlnotify
 			#set --appIcon as the .app that you want the icon to be. I used the Google Notifier icon
-			cmd = " ".join(["growlnotify", '"'+title+'"', "-m", '"'+message+'"', '--appIcon "/Volumes/OSX/Applications/Google Notifier.app"'])
+			#cmd = " ".join(["growlnotify", '"'+title+'"', "-m", '"'+message+'"', '--appIcon "/Volumes/OSX/Applications/Google Notifier.app"'])
+			cmd = " ".join([growl, "-application", "Mail", "-event", '"'+title+'"', "-notification", '"'+message+'"'])
 			
 			debugMsg('growlnotify cmd string:')
 			debugMsg(cmd, 0)
