@@ -65,7 +65,7 @@ __license__ = "MIT/X11"
 __version__ = "1.0.1"
 
 
-import threading, imaplib2, os, sys, getpass
+import threading, imaplib2, os, sys, getpass, re
 
 
 if not len(sys.argv) >= 2:
@@ -245,9 +245,11 @@ class Idler(threading.Thread):
 				
 				debugMsg('headerFields dict. (from showNewMailMessage()):')
 				debugMsg(headerFields, 0)
+
+                                fromfield = re.sub(' <.*>$','',headerFields['From'])
 				
 				#notify
-				self.growlnotify(" ".join(['Mail', headerFields['From']]), "'"+headerFields['Subject']+"'")
+				self.growlnotify(" ".join(['Mail', fromfield]), "'"+headerFields['Subject']+"'")
 				
 				#add this message to the list of known messages
 				self.knownAboutMail.append(id)
