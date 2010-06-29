@@ -50,6 +50,12 @@ Copyright (c) 2010 -- Chris Kirkham
  OTHER DEALINGS IN THE SOFTWARE.
 """
 
+"""
+John Aughey <jha@aughey.com> made minor modifications to make this
+application work with prowl and be a replacement for GPush until
+a more suitable replacement is found.
+"""
+
 __version__ = '0.1'
 __author__  = 'Chris Kirkham'
 __URL__	    = 'http://hmmtheresanidea.blogspot.com'
