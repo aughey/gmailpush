@@ -366,6 +366,7 @@ def main():
 	idler.start()
 	
 	print '* Waiting for mail...'
+        idler.growlnotify("IMAPNotify","Waiting for mail notifications")
 	q = ''
 	while not q == 'q':
 		q = raw_input('Type \'q\' followed by [ENTER] to quit: ')
